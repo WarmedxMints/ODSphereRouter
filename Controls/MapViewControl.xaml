@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="ODSphereRouter.Controls.MapViewControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ODSphereRouter.Controls"
+             xmlns:viewmodels="clr-namespace:ODSphereRouter.ViewModels"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource Eurostile}"
+             d:DataContext="{d:DesignInstance Type=viewmodels:RouteMapViewModel}"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Border Background="Black"
+                CornerRadius="10"
+                SnapsToDevicePixels="True"
+                Grid.Row="0"
+                Grid.ColumnSpan="3"
+                BorderThickness="2"
+                BorderBrush="{StaticResource PrimaryControlBorder}">
+            <Viewport3D x:Name="mapView"
+                        Camera="{Binding PerspectiveCamera}"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        Grid.Column="3"
+                        Grid.RowSpan="4">
+                <ModelVisual3D Content="{Binding ModelGroup}"
+                               x:Name="vPort" />
+            </Viewport3D>
+        </Border>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="1">
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE71F;"
+                          Height="30"
+                          Margin="5,0"
+                          Width="30"
+                          Delay="500"
+                          Interval="10"
+                          FontSize="18"
+                          ToolTip="Zoom Out - Insert Key"
+                          x:Name="ZoomOutBtn"
+                          Command="{Binding ZoomMapOut}"/>
+
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE71E;"
+                          Height="30"
+                          Margin="5,0,35,0"
+                          Width="30"
+                          Delay="500"
+                          Interval="10"
+                          FontSize="18"
+                          ToolTip="Zoom In - Page Up Key"
+                          x:Name="ZoomBtn"
+                          Command="{Binding ZoomMapIn}"/>
+
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE96F;"
+                          Height="30"
+                          Margin="5,0"
+                          Width="30"
+                          FontSize="18"
+                          Delay="500"
+                          Interval="40"
+                          ToolTip="Rotate Left - Delete Key"
+                          x:Name="MapLeftBtn"
+                          Command="{Binding MapLeft}"/>
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE970;"
+                          Height="30"
+                          Margin="5,0"
+                          Width="30"
+                          Delay="500"
+                          Interval="40"
+                          FontSize="18"
+                          ToolTip="Rotate Right - Page Down Key"
+                          x:Name="MapRightBtn"
+                          Command="{Binding MapRight}"/>
+
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE96E;"
+                          Height="30"
+                          Margin="35,0,5,0"
+                          Width="30"
+                          Delay="500"
+                          Interval="40"
+                          FontSize="18"
+                          ToolTip="Rotate Down - End Key"
+                          x:Name="MapUpBtn" 
+                          Command="{Binding MapDown}"/>
+            <RepeatButton FontFamily="Segoe MDL2 Assets"
+                          Content="&#xE96D;"
+                          Height="30"
+                          Margin="5,0"
+                          Width="30"
+                          Delay="500"
+                          Interval="40"
+                          FontSize="18"
+                          ToolTip="Rotate Up - Home Key"
+                          x:Name="MapDowntBtn"
+                          Command="{Binding MapUp}"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

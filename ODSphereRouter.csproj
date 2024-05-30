@@ -1,0 +1,76 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<RootNamespace>ODSphereRouter</RootNamespace>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Configurations>Debug;Release;Portable;Install</Configurations>
+		<ApplicationIcon>Resources\aisling-duval.ico</ApplicationIcon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="Resources\aisling-duval.ico" />
+		<None Remove="Resources\aisling-duval.png" />
+		<None Remove="Resources\EUROSTILE.TTF" />
+		<None Remove="Resources\Keyboard_Black_Ctrl.png" />
+		<None Remove="Resources\Keyboard_Black_Del.png" />
+		<None Remove="Resources\Keyboard_Black_End.png" />
+		<None Remove="Resources\Keyboard_Black_Home.png" />
+		<None Remove="Resources\Keyboard_Black_Insert.png" />
+		<None Remove="Resources\Keyboard_Black_Page_Down.png" />
+		<None Remove="Resources\Keyboard_Black_Page_Up.png" />
+		<None Remove="Resources\Keyboard_Black_R.png" />
+		<None Remove="Resources\Map-galaxy-map.png" />
+		<None Remove="Resources\normal_map.png" />
+		<None Remove="Resources\orrery_map.png" />
+		<None Remove="Resources\paypal-donate-button.png" />
+		<None Remove="Resources\Selection-galaxy-map.png" />
+		<None Remove="Resources\settings.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\aisling-duval.ico" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FlexLabs.EntityFrameworkCore.Upsert" Version="8.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.5" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj" />
+		<ProjectReference Include="..\ODUtils\ODUtils.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\aisling-duval.ico" />
+		<Resource Include="Resources\aisling-duval.png" />
+		<Resource Include="Resources\EUROSTILE.TTF" />
+		<Resource Include="Resources\Keyboard_Black_Ctrl.png" />
+		<Resource Include="Resources\Keyboard_Black_Del.png" />
+		<Resource Include="Resources\Keyboard_Black_End.png" />
+		<Resource Include="Resources\Keyboard_Black_Home.png" />
+		<Resource Include="Resources\Keyboard_Black_Insert.png" />
+		<Resource Include="Resources\Keyboard_Black_Page_Down.png" />
+		<Resource Include="Resources\Keyboard_Black_Page_Up.png" />
+		<Resource Include="Resources\Keyboard_Black_R.png" />
+		<Resource Include="Resources\Map-galaxy-map.png" />
+		<Resource Include="Resources\normal_map.png" />
+		<Resource Include="Resources\orrery_map.png" />
+		<Resource Include="Resources\paypal-donate-button.png" />
+		<Resource Include="Resources\Selection-galaxy-map.png" />
+		<Resource Include="Resources\settings.png" />
+	</ItemGroup>
+
+</Project>

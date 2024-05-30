@@ -1,0 +1,201 @@
+﻿<UserControl x:Class="ODSphereRouter.Controls.RouteMapListControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:ODSphereRouter.Controls"
+             xmlns:viewmodels="clr-namespace:ODSphereRouter.ViewModels"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d"
+             FontFamily="{StaticResource Eurostile}"
+             Foreground="{DynamicResource PrimaryControlForeground}"
+             d:DataContext="{d:DesignInstance Type=viewmodels:RouteMapViewModel}"
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <UserControl.Resources>
+        <System:Boolean x:Key="FalseValue">False</System:Boolean>
+        <System:Boolean x:Key="TrueValue">True</System:Boolean>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="80" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0"
+              Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Start System"
+                       Margin="0,0,5,0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left" />
+
+            <TextBox  Grid.Column="1"
+                      Background="{StaticResource NavigationBarBackground}"
+                      Foreground="{StaticResource PrimaryControlForeground}"
+                      BorderBrush="{DynamicResource PrimaryControlBorder}"
+                      BorderThickness="1"
+                      FontSize="18"
+                      Height="30"
+                      Text="{Binding StartSystem, Mode=TwoWay}"
+                      CaretBrush="White"
+                      MinWidth="190"
+                      VerticalContentAlignment="Center" />
+
+            <CheckBox Grid.Column="3"
+                      Content="Auto copy to clipboard"
+                      HorizontalAlignment="Right"
+                      Style="{StaticResource CheckBoxStyle}"
+                      IsChecked="{Binding Settings.AutoCopyToClipboard, Mode=TwoWay}"
+                      IsThreeState="False" />
+        </Grid>
+
+        <DataGrid x:Name="RouteListGrid"
+                  Grid.Row="1"
+                  HeadersVisibility="Column"
+                  AutoGenerateColumns="False"
+                  BorderThickness="0"
+                  GridLinesVisibility="Horizontal"
+                  SelectionMode="Single"
+                  FontSize="18"
+                  IsReadOnly="True"
+                  Margin="10,0"
+                  CanUserSortColumns="False"
+                  MinRowHeight="20"
+                  ItemsSource="{Binding Route}"
+                  RowStyle="{StaticResource NonHitTestVisileRow}"
+                  Background="{StaticResource Transparent}"
+                  Foreground="{StaticResource PrimaryControlForeground}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="System"
+                                    Binding="{Binding Name}"
+                                    CellStyle="{StaticResource DarkerCellLeft}"
+                                    IsReadOnly="True"
+                                    MinWidth="150"
+                                    Width="*" />
+                <DataGridTextColumn Header="Powerplay State"
+                                    Binding="{Binding PowerState}"
+                                    HeaderStyle="{StaticResource DataGridHeaderLeft}"
+                                    CellStyle="{StaticResource DarkerCellLeft}"
+                                    IsReadOnly="True"
+                                    MinWidth="50"
+                                    Width="*" />
+                <DataGridTextColumn Header="Jump Distance"
+                                    Binding="{Binding JumpDistance}"
+                                    HeaderStyle="{StaticResource DataGridHeaderCenter}"
+                                    CellStyle="{StaticResource DarkerCellRight}"
+                                    IsReadOnly="True"
+                                    Width="120" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Row="1"
+                    HorizontalAlignment="Left"
+                    Margin="20,0"
+                    VerticalAlignment="Center"
+                    Width="30"
+                    Grid.Column="1">
+            <Button FontFamily="Marlett"
+                    Height="30"
+                    Margin="0,0,0,10"
+                    FontSize="25"
+                    x:Name="UpButton"
+                    Command="{Binding ChangeSelectedItem}"
+                    CommandParameter="{StaticResource TrueValue}"
+                    Content="5" />
+
+            <Button FontFamily="Segoe MDL2 Assets"
+                    Content="&#xE77F;"
+                    Height="30"
+                    Margin="0,10"
+                    FontSize="18"
+                    Command="{Binding CopySelectedItemToClipboard}"
+                    ToolTip="Copy selected system to clipboard"
+                    x:Name="CopyCurrentToClipboardBtn" />
+            <Button FontFamily="Marlett"
+                    FontSize="25"
+                    x:Name="DownButton"
+                    Margin="0,10,0,0"
+                    Height="30"
+                    Command="{Binding ChangeSelectedItem}"
+                    CommandParameter="{StaticResource FalseValue}"
+                    Content="6" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="2"
+                   FontSize="24"
+                   Height="40"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   x:Name="ClipboardText"
+                   Foreground="Yellow" />
+        
+        <Grid Grid.Row="4"
+              Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="10" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="10" />
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="Systems in route"
+                       VerticalAlignment="Center" />
+            <TextBlock Text="{Binding SystemCount}"
+                       VerticalAlignment="Center"
+                       Grid.Column="2" />
+
+            <TextBlock Text="Total Distance"
+                       VerticalAlignment="Center"
+                       Grid.Column="4" />
+            <TextBlock Text="{Binding Distance}"
+                       VerticalAlignment="Center"
+                       Grid.Column="6" />
+            <StackPanel Orientation="Horizontal"
+                        Grid.Row="2"
+                        Grid.ColumnSpan="7"
+                        VerticalAlignment="Center">
+                <Button Content="Calculate Route"
+                        Width="160"
+                        Height="30"
+                        FontSize="16"
+                        Margin="0,0,20,0"
+                        Command="{Binding GenerateRouteCommand}" />
+                <Button Content="Set Selected as Start"
+                        Width="160"
+                        FontSize="16"
+                        Height="30"
+                        Margin="0,0,20,0"
+                        Command="{Binding SetSelectedAsStart}" />
+                <Button Content="Set Current as Start"
+                        Width="160"
+                        FontSize="16"
+                        Height="30"
+                        Margin="0,0,20,0"
+                        Command="{Binding SetCurrentAsStart}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

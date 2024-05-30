@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODSphereRouter", "ODSphereRouter.csproj", "{2E09ED80-CC51-4515-A553-86CF850EF16A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ODUtils", "..\ODUtils\ODUtils.csproj", "{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EliteJournalReader", "..\EliteJournalReader\EliteJournalReader\EliteJournalReader.csproj", "{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Install|Any CPU = Install|Any CPU
+		Portable|Any CPU = Portable|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Install|Any CPU.ActiveCfg = Install|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Install|Any CPU.Build.0 = Install|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Portable|Any CPU.ActiveCfg = Portable|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Portable|Any CPU.Build.0 = Portable|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E09ED80-CC51-4515-A553-86CF850EF16A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Install|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Install|Any CPU.Build.0 = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Portable|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Portable|Any CPU.Build.0 = Debug|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DED96B8-4C53-4B38-B90E-2B54C846C6E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Install|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Install|Any CPU.Build.0 = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Portable|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Portable|Any CPU.Build.0 = Debug|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF40DDD-9CCF-4A98-BBE5-49FBB264726C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E6C2621-751D-4004-85E6-29DF9F09D730}
+	EndGlobalSection
+EndGlobal
